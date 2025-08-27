@@ -1,4 +1,4 @@
-# Project: Multi-threaded Logger with a Kernel Module Back-end
+# 🔹Project: Multi-threaded Logger with a Kernel Module Back-end
 ## High-Level Description
 
 Implement a user-space program that spawns multiple threads (producers) which generate log messages. These threads push logs into a shared buffer protected by POSIX mutexes/condition variables.
