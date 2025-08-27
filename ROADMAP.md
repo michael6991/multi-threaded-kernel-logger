@@ -6,6 +6,7 @@ Goal: Build the producer/consumer system entirely in user-space.
 * Step 2: Spawn multiple producer threads that generate random log messages (e.g., "Producer 1: message 42").
 * Step 3: Spawn one consumer thread that dequeues and prints the messages.
 * Step 4: Use pthread_mutex_t + pthread_cond_t to synchronize access to the queue (classic producer-consumer problem).
+
 👉 At this point, you’ve practiced POSIX mutual exclusion + multi-threading.
 
 ## Phase 2 – Kernel-Space Sink (Character Device Driver)
@@ -13,12 +14,14 @@ Goal: Replace the user-space consumer with a kernel module.
 * Step 1: Write a minimal Linux kernel module that registers a character device /dev/logger.
 * Step 2: Implement open(), release(), and a basic write() that stores data into a kernel buffer (kmalloc + ring buffer).
 * Step 3: From user-space, replace the consumer thread with write() system calls into /dev/logger.
+
 👉 Now you’re touching user ↔ kernel interaction.
 
 ## Phase 3 – Reading Back Logs
 Goal: Make logs retrievable.
 * Step 1: Implement a read() method in your driver that lets another user-space program fetch logs.
 * Step 2: Write a separate consumer app (or thread) that calls read() on /dev/logger and prints messages.
+
 👉 You now have a multi-threaded user-space producer → kernel buffer → user-space consumer pipeline.
 
 ## Phase 4 – Advanced Features (Optional)
