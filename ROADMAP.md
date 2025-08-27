@@ -1,4 +1,4 @@
-🚀 Roadmap for Multi-threaded Logger with Kernel Module
+# 🚀 Roadmap for Multi-threaded Logger with Kernel Module
 
 ## Phase 1 – User-Space Only (Threads + Mutexes)
 Goal: Build the producer/consumer system entirely in user-space.
